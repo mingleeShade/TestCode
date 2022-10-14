@@ -1,0 +1,39 @@
+# clang -v -c -xc++ /dev/null
+
+CompileFlags:
+  Compiler: clang++
+  Add: [
+    -xc++,
+    -std=c++17,
+    -Wall,
+  ]
+
+Diagnostics:
+  ClangTidy:
+    Add: [
+      performance*,
+      modernize*,
+      readability*
+    ]
+    Remove: [
+      modernize-use-trailing-return-type,
+      modernize-use-nodiscard,
+      readability-identifier-naming,
+      readability-identifier-length,
+      readability-redundant-access-specifiers,
+      readability-implicit-bool-conversion,
+    ]
+    CheckOptions:
+      readability-identifier-naming.VariableCase: CamelCase
+  UnusedIncludes: Strict
+
+Completion:
+  AllScopes: Yes
+
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: No
+
+Hover:
+  ShowAKA: Yes
