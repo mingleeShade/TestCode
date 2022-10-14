@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sys/types.h>
 #include <vector>
 #include <list>
 #include <map>
@@ -10,6 +11,7 @@ int main()
 {
     size_t i = -100;
     int c = -100;
-    cout << "i: " << i << ", c: " << c << endl;
+    ssize_t si = -1000;
+    cout << "i: " << i << ", c: " << c  << ", si: " << si << endl;
     return 0;
 }
