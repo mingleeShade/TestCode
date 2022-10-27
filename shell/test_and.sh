@@ -18,7 +18,7 @@ else
 fi
 
 if [[ (${TRUE} == "true") && (${FALSE} == "false") ]]; then
-    echo "3. pass." # no pass
+    echo "3. pass." # pass
 else
     echo "3. no pass."
 fi
