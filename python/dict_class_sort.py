@@ -7,8 +7,8 @@ class TestData:
         self.value_ = value
     
     # 这个可以让输出更加简洁，不带上 对象相关属性
-    def __repr__(self) -> str:
-        return repr((self.name_, self.value_))
+    #  def __repr__(self) -> str:
+    #      return repr((self.name_, self.value_))
 
 def main():
     test_dict = {}
@@ -26,6 +26,8 @@ def main():
     dict_sorted = sorted(test_dict.items(), key=lambda t: t[1].value_)
     #dict_sorted = sorted(test_dict.items(), key = lambda)
     print("sorted: ", dict_sorted)
+
+    dict_sorted = sorted(test_dict.items(), key=lambda t: t[1].value_, reverse=True)
 
 
 if __name__ == "__main__":
