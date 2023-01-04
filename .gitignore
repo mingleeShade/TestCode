@@ -10,3 +10,5 @@ tutorial
 CMakeCache.txt
 cmake_install.cmake
 CMakeFiles/
+test.txt
+perf.*
