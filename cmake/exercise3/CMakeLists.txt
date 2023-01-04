@@ -6,6 +6,6 @@ configure_file(TutorialConfig.h.in TutorialConfig.h)
 
 add_executable(Tutorial tutorial.cxx)
 
-target_include_directories(Tutorial PUBLIC
-    "${PROJECT_BINARY_DIR}"
-    )
+# target_include_directories(Tutorial PUBLIC
+#     "${PROJECT_BINARY_DIR}"
+#     )
