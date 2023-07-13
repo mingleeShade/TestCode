@@ -1,4 +1,4 @@
-import graphviz
+import graphviz,random
 
 # 内存占用数据
 data = {
@@ -41,9 +41,11 @@ for k, v in data.items():
     dot.node(k, label)
 
 # 添加边
+random.seed()
 for k, v in data.items():
     for i in v['indirect']:
-        dot.edge(k, i[0], label='{}KB'.format(i[1]))
+        width = random.random() * 2
+        dot.edge(k, i[0], label='{}KB'.format(i[1]), penwidth=f'{width}')
 
 # 输出图形文件
 dot.render('memory_profile', view=False)
