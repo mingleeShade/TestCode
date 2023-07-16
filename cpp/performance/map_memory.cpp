@@ -1,22 +1,8 @@
-#include <iostream>
 #include <map>
-#include <fstream>
 #include <string>
 
-void print_memory_usage()
-{
-    std::ifstream file("/proc/self/status");
-    std::string line;
+#include "memory.h"
 
-    while (std::getline(file, line))
-    {
-        if (line.substr(0, 5) == "VmRSS")
-        {
-            std::cout << "Memory Usage: " << line << std::endl;
-            break;
-        }
-    }
-}
 
 int main()
 {
