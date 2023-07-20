@@ -10,5 +10,6 @@ using namespace std;
 int main()
 {
     std::cout << INT_MAX << endl;
+    std::cout << UINT_MAX << endl;
     return 0;
 }
