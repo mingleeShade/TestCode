@@ -34,18 +34,25 @@ data = {
 dot = graphviz.Digraph()
 
 # 添加节点
+random.seed()
 for k, v in data.items():
     label = '{}\n直接内存：{}KB\n间接内存：{}KB'.format(
         k, v['direct'], sum([x[1] for x in v['indirect']])
     )
     dot.node(k, label)
-
-# 添加边
-random.seed()
-for k, v in data.items():
+    # 添加边
     for i in v['indirect']:
         width = random.random() * 2
-        dot.edge(k, i[0], label='{}KB'.format(i[1]), penwidth=f'{width}')
+        dot.edge(k, i[0], label='{}KB'.format(i[1], penwidth=f'{width}'))
+
+
+
+#  # 添加边
+#  random.seed()
+#  for k, v in data.items():
+#      for i in v['indirect']:
+#          width = random.random() * 2
+#          dot.edge(k, i[0], label='{}KB'.format(i[1]), penwidth=f'{width}')
 
 # 输出图形文件
 dot.render('memory_profile', view=False)
