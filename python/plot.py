@@ -43,7 +43,7 @@ for k, v in data.items():
     # 添加边
     for i in v['indirect']:
         width = random.random() * 2
-        dot.edge(k, i[0], label='{}KB'.format(i[1], penwidth=f'{width}'))
+        dot.edge(k, i[0], label='{}KB'.format(i[1]), penwidth=f'{width}')
 
 
 
