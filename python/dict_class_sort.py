@@ -26,23 +26,29 @@ def main():
     dict_sorted = sorted(test_dict.items(), key=lambda t: t[1].value_)
     #dict_sorted = sorted(test_dict.items(), key = lambda)
     print("sorted: ", dict_sorted)
-    print("type of dict_sorted", type(dict_sorted))
+    print("type of dict_sorted", type(dict_sorted)) # type  list
 
     new_dict = {
             "2": {
-                "size": 22
+                "size": 22,
+                "dsize": 11
                 },
             "1": {
-                "size": 12
+                "size": 12,
+                "dsize": 52
                 },
             "3": {
-                "size": 33
+                "size": 33,
+                "dsize": 31
                 }
             }
     print(new_dict.items())
+    # dict_items([('2', {'size': 22, 'dsize': 11}), ('1', {'size': 12, 'dsize': 52}), ('3', {'size': 33, 'dsize': 31})])
 
-    dict_sorted = sorted(new_dict.items(), key = lambda i:i[1]['size'], reverse=True)
+    dict_sorted = sorted(new_dict.items(), key = lambda i:i[1]['size']+i[1]['dsize'], reverse=True)
+
     print(dict_sorted)
+    # [('1', {'size': 12, 'dsize': 52}), ('3', {'size': 33, 'dsize': 31}), ('2', {'size': 22, 'dsize': 11})]
 
 
 if __name__ == "__main__":
