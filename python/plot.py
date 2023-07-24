@@ -39,7 +39,8 @@ for k, v in data.items():
     label = '{}\n直接内存：{}KB\n间接内存：{}KB'.format(
         k, v['direct'], sum([x[1] for x in v['indirect']])
     )
-    dot.node(k, label)
+    size = random.random() * 2 + 20
+    dot.node(k, label, shape="box", fontsize=f"{size}")
     # 添加边
     for i in v['indirect']:
         width = random.random() * 2
