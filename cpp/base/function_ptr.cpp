@@ -44,7 +44,7 @@ public:
         //*(m_a)();
     }
 
-    Action m_a; 
+    Action m_a;
     T* m_t;
 };
 
@@ -56,6 +56,23 @@ int main()
 
     t.Call();
     t.Call2();
+
+    int c = 1;
+    if (c == 1)
+    {
+        cout << "2" << endl;
+    }
+    switch (c)
+    {
+        case 1:
+        {
+            std::cout << "1" << endl;
+        }
+        default:
+        {
+            std::cout << "default" << endl;
+        }
+    }
 
     return 0;
 }
