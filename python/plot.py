@@ -2,7 +2,7 @@ import graphviz,random
 
 # 内存占用数据
 data = {
-    'User': {
+        '\"User::1223\"': {
         'direct': 20,
         'indirect': [
             ('BackPack', 10),
