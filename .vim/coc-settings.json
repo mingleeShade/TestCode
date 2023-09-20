@@ -1,0 +1,14 @@
+{
+  "Lua.diagnostics.globals": [
+    "Game",
+    "g_BingoMgr",
+    "pb",
+    "NULL_UUID",
+    "EResourceCostReason",
+    "currentTime",
+    "DAY_SECONDS",
+    "g_handleMgr",
+    "EResourceAddReason",
+    "toHex"
+  ]
+}
