@@ -4,6 +4,7 @@
 #include <map>
 #include <unordered_map>
 #include <string>
+#include <unistd.h>
 using namespace std;
 
 using DWORD = unsigned int;
@@ -44,5 +45,13 @@ int main()
     std::cout << "sizeof string: " << sizeof(string) << endl;
     std::string ss = "sssssssssssssss0000";
     std::cout << "sizeof ss: " << sizeof(ss) << endl;
+
+    typedef std::map<DWORD, CHNode> NodeMap;
+    NodeMap m;
+    auto& node1 = m[123456];
+    auto& node2 = m[111113434];
+
+    std::cout << "before sleep." << endl;
+    ::usleep(20 * 1000 * 1000);
     return 0;
 }
