@@ -3,6 +3,7 @@ main
 *.d
 *.s
 *.asm
+a.out
 
 Tutorial
 tutorial
