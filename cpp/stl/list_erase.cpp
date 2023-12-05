@@ -12,6 +12,8 @@ void show(const list<int>& l)
     cout << endl;
 }
 
+// 编译指令：g++ list_erase.cpp -o main -fsanitize=address
+
 int main (int argc, char* argv[])
 {
     std::list<int> l = {1, 2, 3, 4, 5};
