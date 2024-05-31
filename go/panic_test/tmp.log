@@ -1,0 +1,70 @@
+init_panic.init()
+panic: init_panic
+
+goroutine 1 [running]:
+panic({0x100947b20, 0x100958840})
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/panic.go:987 +0x3c0 fp=0x1400006eca0 sp=0x1400006ebe0 pc=0x1008c3f30
+TestCode/go/panic_test/init_panic.init.0()
+	/Users/bytedance/go/src/TestCode/go/panic_test/init_panic/init_panic.go:7 +0x6c fp=0x1400006ecf0 sp=0x1400006eca0 pc=0x10091e62c
+runtime.doInit(0x1009b9820)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:6331 +0x12c fp=0x1400006ee30 sp=0x1400006ecf0 pc=0x1008d439c
+runtime.doInit(0x1009b9ce0)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:6308 +0x68 fp=0x1400006ef70 sp=0x1400006ee30 pc=0x1008d42d8
+runtime.main()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:233 +0x1f8 fp=0x1400006efd0 sp=0x1400006ef70 pc=0x1008c6808
+runtime.goexit()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/asm_arm64.s:1172 +0x4 fp=0x1400006efd0 sp=0x1400006efd0 pc=0x1008f01d4
+
+goroutine 2 [force gc (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:363 +0xe4 fp=0x14000046fa0 sp=0x14000046f80 pc=0x1008c6c24
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:369
+runtime.forcegchelper()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:302 +0xac fp=0x14000046fd0 sp=0x14000046fa0 pc=0x1008c6abc
+runtime.goexit()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000046fd0 sp=0x14000046fd0 pc=0x1008f01d4
+created by runtime.init.6
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:290 +0x24
+
+goroutine 3 [GC sweep wait]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:363 +0xe4 fp=0x14000047770 sp=0x14000047750 pc=0x1008c6c24
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:369
+runtime.bgsweep(0x0?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgcsweep.go:278 +0xa4 fp=0x140000477b0 sp=0x14000047770 pc=0x1008b4834
+runtime.gcenable.func1()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgc.go:178 +0x28 fp=0x140000477d0 sp=0x140000477b0 pc=0x1008a9078
+runtime.goexit()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/asm_arm64.s:1172 +0x4 fp=0x140000477d0 sp=0x140000477d0 pc=0x1008f01d4
+created by runtime.gcenable
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgc.go:178 +0x74
+
+goroutine 4 [GC scavenge wait]:
+runtime.gopark(0x1400005c000?, 0x10093eee0?, 0x1?, 0x0?, 0x0?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:363 +0xe4 fp=0x14000047f50 sp=0x14000047f30 pc=0x1008c6c24
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:369
+runtime.(*scavengerState).park(0x1009d0700)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgcscavenge.go:389 +0x5c fp=0x14000047f80 sp=0x14000047f50 pc=0x1008b27ec
+runtime.bgscavenge(0x0?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgcscavenge.go:617 +0x44 fp=0x14000047fb0 sp=0x14000047f80 pc=0x1008b2d94
+runtime.gcenable.func2()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgc.go:179 +0x28 fp=0x14000047fd0 sp=0x14000047fb0 pc=0x1008a9018
+runtime.goexit()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000047fd0 sp=0x14000047fd0 pc=0x1008f01d4
+created by runtime.gcenable
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mgc.go:179 +0xb8
+
+goroutine 5 [finalizer wait]:
+runtime.gopark(0x65a0?, 0x100a30658?, 0x8?, 0x41?, 0x60?)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:363 +0xe4 fp=0x14000046580 sp=0x14000046560 pc=0x1008c6c24
+runtime.goparkunlock(...)
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/proc.go:369
+runtime.runfinq()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mfinal.go:180 +0x120 fp=0x140000467d0 sp=0x14000046580 pc=0x1008a82a0
+runtime.goexit()
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/asm_arm64.s:1172 +0x4 fp=0x140000467d0 sp=0x140000467d0 pc=0x1008f01d4
+created by runtime.createfing
+	/opt/homebrew/Cellar/go@1.19/1.19.13/libexec/src/runtime/mfinal.go:157 +0x84
