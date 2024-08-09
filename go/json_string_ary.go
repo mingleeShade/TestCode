@@ -6,16 +6,17 @@ import (
 )
 
 type Test struct {
+	Str string   `json:"str,string"`
 	Ary []string `json:"ary"`
 }
 
 func main() {
 	var t Test
-	content := "{\"ary\":[\"lihaiming\"]}"
+	content := "{\"str\": \"xxx\", \"ary\":[\"lihaiming\"]}"
 	err := json.Unmarshal([]byte(content), &t)
 	if err != nil {
 		fmt.Println("error", err)
 	}
 
-	fmt.Println("ary: ", t.Ary)
+	fmt.Println("struct: ", t)
 }
