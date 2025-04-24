@@ -7,6 +7,13 @@ import (
 	"time"
 )
 
+type ItemInfo struct {
+	Version          *int64  `protobuf:"varint,1,opt,name=Version" json:"Version,omitempty"`
+	UserETag         *string `protobuf:"bytes,2,opt,name=UserETag" json:"UserETag,omitempty"`
+	DataETag         *string `protobuf:"bytes,3,opt,name=DataETag" json:"DataETag,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
+}
+
 func main() {
 	const N = 30e5
 	if len(os.Args) != 2 {
@@ -62,7 +69,18 @@ func main() {
 		runtime.GC()
 		fmt.Printf("With a plain slice (%T), GC took %s\n", s, timeGC())
 		_ = s[0]
+	case "5":
+		m := make(map[string][]byte)
+		for i := 0; i < N; i++ {
+			key := fmt.Sprintf("key_%d", i)
+			value := fmt.Sprintf("value_xxxxx_xxxx_%d", i)
+			m[key] = []byte(value)
+		}
+		runtime.GC()
+		fmt.Printf("With a plain slice (%T), GC took %s\n", m, timeGC())
+		_ = m["key_0"]
 	}
+
 }
 
 func timeGC() time.Duration {
