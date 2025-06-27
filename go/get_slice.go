@@ -11,6 +11,7 @@ func main() {
 	idList = append(idList, 5)
 	fmt.Println("[5:]", idList[5:])
 	fmt.Println("[0:5]", idList[0:5])
+	fmt.Println("[1:1]", idList[1:1])
 	fmt.Println("[1:2]", idList[1:2])
 	fmt.Println("[1:10]", idList[1:10])
 	fmt.Println("[-1:2]", idList[1:2])
