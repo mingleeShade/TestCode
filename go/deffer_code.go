@@ -2,6 +2,15 @@ package main
 
 import "fmt"
 
+type TestStruct struct {
+	A string
+	B int
+}
+
+func DeferCode(t *TestStruct) {
+	fmt.Printf("t: %+v\n", t)
+}
+
 func Test() {
 	var a int
 	defer func() {
@@ -39,6 +48,10 @@ func TestDeferTime() {
 }
 
 func main() {
+	var t = TestStruct{A: "1", B: 1}
+	defer DeferCode(&t)
+	t.A = "2"
+	t.B = 2
 	Test()
 	TestDeferTime()
 }
