@@ -7,8 +7,9 @@ type TestStruct struct {
 	B int
 }
 
-func DeferCode(t *TestStruct) {
-	fmt.Printf("t: %+v\n", t)
+func DeferCode(t *TestStruct, err *error) {
+	curErr := *err
+	fmt.Printf("t: %+v, err: %s, err != nil: %v\n", t, curErr, curErr != nil)
 }
 
 func Test() {
@@ -49,9 +50,11 @@ func TestDeferTime() {
 
 func main() {
 	var t = TestStruct{A: "1", B: 1}
-	defer DeferCode(&t)
+	var err error
+	defer DeferCode(&t, &err)
 	t.A = "2"
 	t.B = 2
 	Test()
 	TestDeferTime()
+	err = fmt.Errorf("test error")
 }
