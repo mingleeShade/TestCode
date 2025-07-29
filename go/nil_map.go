@@ -11,6 +11,7 @@ func main() {
 	if ok {
 		fmt.Println("exist! a: ", a)
 	} else {
+		// 这里打印
 		fmt.Println("not exists!")
 	}
 }
